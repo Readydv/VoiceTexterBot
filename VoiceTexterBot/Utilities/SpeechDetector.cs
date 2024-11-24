@@ -14,7 +14,7 @@ namespace VoiceTexterBot.Utilities
     {
         public static string DetectSpeech (string audioPath, float inputBitrate, string languageCode)
         {
-            Vosk.Vosk.SetLogLevel(-1);
+            Vosk.Vosk.SetLogLevel(0);
             var modelPath = Path.Combine(DirectoryExtension.GetSolutionRoot(), "Speech-models", $"vosk-model-small-{languageCode.ToLower()}");
             Model model = new(modelPath);
             return GetWords(model, audioPath, inputBitrate);
